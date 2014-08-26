@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <!-- Bootstrap CSS -->
+	<link href="css/bootstrap.css" rel="stylesheet">
+
+  <!-- Font awesome include -->
+  <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+	<!-- Animations -->
+	  <link rel="stylesheet" href="css/animate.min.css">
+
+	<!-- my stylesheet -->
+		<link href="css/obama.css" rel="stylesheet" type="text/css">
+
+</head>
+
+<body>
+</body>
+
+<section class="mainfold" id="mainfold_section"
+
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-12" style="text-align:center">
+        <div class="animated bounceIn">
+          <h1>
+            Obama's Last day in Office is Jan 20th, 2017
+						<br>
+            <br>
+            only
+            <br>
+					</h1>
+					<b>
+					<h1 style="font-size:80px;">
+          <span id="countdown"></span> left!
+          </h1>
+				</b>
+				<iframe src="//www.facebook.com/plugins/like.php?href=https%3A%2F%2Fobamascountdown.com&amp;width&amp;layout=button_count&amp;action=like&amp;show_faces=true&amp;share=true&amp;height=21&amp;appId=115003698694136" scrolling="no" frameborder="0" style="border:none; overflow:hidden; height:21px;" allowTransparency="true"></iframe>
+				<br>
+				<img src="img/notbad_barrack.jpg" class="img-responsive center-block" alt="Not Bad">
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<script>
+// set the date we're counting down to
+var target_date = new Date("Jan 20, 2017").getTime();
+
+// variables for time units
+var days, hours, minutes, seconds;
+
+// get tag element
+var countdown = document.getElementById("countdown");
+
+// update the tag with id "countdown" every 1 second
+setInterval(function () {
+
+    // find the amount of "seconds" between now and target
+    var current_date = new Date().getTime();
+    var seconds_left = (target_date - current_date) / 1000;
+
+    // do some time calculations
+    days = parseInt(seconds_left / 86400);
+    seconds_left = seconds_left % 86400;
+
+    hours = parseInt(seconds_left / 3600);
+    seconds_left = seconds_left % 3600;
+
+    minutes = parseInt(seconds_left / 60);
+    seconds = parseInt(seconds_left % 60);
+
+		/*figured this out like a boss, Needed to convert the int
+		to a string and then take take the string and give it a color
+		with a new var */
+
+		var n = seconds.toString();
+		var color = n.fontcolor("darkred");
+
+		var sLetter = "s";
+		var sColored = sLetter.fontcolor("darkred");
+
+
+
+    // format countdown string + set tag value
+    countdown.innerHTML = days + "d, " + hours + "h, "
+    + minutes + "m, " + color + sColored;
+
+}, 1000);
+
+</script>
+</html>
